@@ -3,21 +3,23 @@ import xlrd
 import time
 
 start = time.time()
-
-for u in range(33):
-    path = "food_10.xls"
+insgesammt = []
+number = 0
+for u in range(26):
+    
+    path = str(number) + ".xls"
 
     inputWorkbook = xlrd.open_workbook(path)
     inputWorksheet = inputWorkbook.sheet_by_index(0)
 
-    outWorkbook = xlsxwriter.Workbook("Test1.xlsx")
+    outWorkbook = xlsxwriter.Workbook("Fertig" + str(number) + ".xlsx")
     outSheet = outWorkbook.add_worksheet()
 
     spalten = inputWorksheet.ncols
     zeilen = inputWorksheet.nrows
-
-    print(spalten)
-    print(zeilen)
+    print("Runde: " + str(number + 1))
+    print("Spalten:" + str(spalten))
+    print("Zeilen:" + str(zeilen))
 
 
     product_name = []
@@ -164,6 +166,8 @@ for u in range(33):
                                 carbohydrates_100g.append(kohlhy)
                                 fat_100g.append(fett)
                                 proteins_100g.append(protein)
+                                nutriscore_score.append(inputWorksheet.cell_value(h, 56))
+                                nutriscore_grade.append(inputWorksheet.cell_value(h, 57))
                             else:
                                 #print("Keine Proteine")
                                 counter += 1
@@ -184,16 +188,16 @@ for u in range(33):
             counter += 1
         h += 1
 
-    #print(test)
-    print(len(test))
-    print(zeilen)
+
 
     outSheet.write(0, 0, "Product Name")
     outSheet.write(0, 1, "Quantity")
     outSheet.write(0, 2, "Kcal")
     outSheet.write(0, 3, "Carbonhydrates")
     outSheet.write(0, 4, "Fat")
-    outSheet.write(0, 5, "Protein")
+    outSheet.write(0, 6, "Protein")
+    outSheet.write(0, 5, "Nutri Score")
+    outSheet.write(0, 5, "Nutri Grade")
 
     h = 1
     j = 0
@@ -204,9 +208,14 @@ for u in range(33):
         outSheet.write(h, 3, carbohydrates_100g[j])
         outSheet.write(h, 4, fat_100g[j])
         outSheet.write(h, 5, proteins_100g[j])
+        outSheet.write(h, 6, nutriscore_score[j])
+        outSheet.write(h, 7, nutriscore_grade[j])
         h += 1
         j += 1
     outWorkbook.close()
-    print(counter)
+    insgesammt.append(len(product_name))
+    number += 1
+    print("Fehler:" + str(counter))
 end = time.time()
 print(end - start)
+print(insgesammt)

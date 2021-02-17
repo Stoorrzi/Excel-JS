@@ -1,26 +1,3 @@
-import xlsxwriter
-import xlrd
-import time
-
-    
-path = "food_10.xls"
-
-inputWorkbook = xlrd.open_workbook(path)
-inputWorksheet = inputWorkbook.sheet_by_index(0)
-
-outWorkbook = xlsxwriter.Workbook("Test1.xlsx")
-outSheet = outWorkbook.add_worksheet()
-
-spalten = inputWorksheet.ncols
-zeilen = inputWorksheet.nrows
-
-print(spalten)
-print(zeilen)   
-h = []
-for x in range(100):
-    mänge = inputWorksheet.cell_value(x, 10)
-    if len(mänge) > 0: 
-        print(mänge)
-    else: 
-        print("Nix")
-    x += 1
+import math
+a = [2531, 1828, 3993, 2366, 2994, 2380, 2347, 11652, 4952, 15276, 24868, 19214, 15891, 16348, 11299, 14655, 17409, 10400, 15551, 12047, 14916, 12265, 9357, 10209, 13068, 1630]
+print(sum(a))
