@@ -1,10 +1,2 @@
-strg = '12 x 13'
-
-vor12 = strg.split('x', 1)[0]
-nach12 = strg.split('x', 1)[1]
-
-print(int(vor12))
-print(int(nach12))
-
-final = int(vor12) * int(nach12)
-print(final)
+a = [858, 642, 1244, 894, 1057, 715, 810, 1869, 1247, 3037, 5160, 3357, 2895, 3056, 1906, 2491, 3570, 2541, 3930, 2519, 2647, 2173, 1632, 1990, 3724, 408]
+print(sum(a))
