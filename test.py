@@ -43,6 +43,8 @@ try:
             print(final)
 
 
+
+
     elif letter_g in s.lower() and letter_kg not in s.lower():
         splitt = (s.lower().split('g', 1)[0])
         if letter_x in splitt.lower():
