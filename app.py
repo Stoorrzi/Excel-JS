@@ -149,12 +149,13 @@ for u in range(1):
     counter = 0
     for x in range(zeilen):
         name = inputWorksheet.cell_value(h, 7)
-        s = inputWorksheet.cell_value(h, 10)
+        sa = inputWorksheet.cell_value(h, 10)
         kcal = inputWorksheet.cell_value(h, 74)
         kohlhy = inputWorksheet.cell_value(h, 113)
         fett = inputWorksheet.cell_value(h, 77)
         protein = inputWorksheet.cell_value(h, 126)
         if len(name) > 0:
+            s = str(sa)
             letter_g = 'g'
             letter_kg = 'kg'
             letter_oz = 'oz'
