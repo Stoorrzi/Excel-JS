@@ -195,9 +195,9 @@ for u in range(26):
     outSheet.write(0, 2, "Kcal")
     outSheet.write(0, 3, "Carbonhydrates")
     outSheet.write(0, 4, "Fat")
-    outSheet.write(0, 6, "Protein")
-    outSheet.write(0, 5, "Nutri Score")
-    outSheet.write(0, 5, "Nutri Grade")
+    outSheet.write(0, 5, "Protein")
+    outSheet.write(0, 6, "Nutri Score")
+    outSheet.write(0, 7, "Nutri Grade")
 
     h = 1
     j = 0
